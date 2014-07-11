@@ -2,43 +2,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Core tests - </title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="http://quirksmode.org/dom/domtests.css">
-<script>
-var COREtests = [
-	{
-		output: 'arrows',
-		outputText: 'arrows',
-		description: 'An arrow function expression has a shorter syntax compared to function expressions and lexically binds the this value. Arrow functions are always anonymous.',
-		test: function () {
-			var test = eval('() => { a = 1; };');
-        	test();
+	<title>Core tests - </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="http://quirksmode.org/dom/domtests.css">
+	<script>
+	var COREtests = [
+		{
+			output: 'without-arguments',
+			outputText: 'Arrows functions with no arguments: ()=>',
+			description: 'An arrow function expression has a shorter syntax compared to function expressions.',
+			test: function () {
+				eval('() => { a = 1; };');
+			}
+		},
+		{
+			output: 'with-one-argument',
+			outputText: 'Arrows functions with 1 argument: (a)=>',
+			description: 'An arrow function expression has a shorter syntax compared to function expressions.',
+			expectedValue: 1,
+			test: function () {
+				var a = 0;
+				var test = eval('(b) => { a += b; };');
+				test(1);
+				return a;
+			}
 		}
-	}
-];
-</script>
-<script src="../testrunner.js"></script>
+	];
+	</script>
+	<script src="../testrunner.js"></script>
 </head>
-
 <body>
 
-<h2>Core tests</h2>
+	<h2>Arrow function tests</h2>
 
-<div class="floater">
-<p><a href="./">Back to index</a>.</p>
-</p>
-</div>
+	<div class="floater">
+		<p><a href="../index.html">Back to index</a>.</p>
+	</div>
 
-<div id="finalResults">
+	<div id="finalResults">
 
-</div>
+	</div>
 
-<h4>arrows</h4>
-
-<div id="arrows">
-
-</div>
+	<h4>arrows</h4>
+	<div id="without-arguments"></div>
+	<div id="with-one-argument"></div>
 </body>
 </html>
