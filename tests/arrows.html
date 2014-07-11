@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Core tests - </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="http://quirksmode.org/dom/domtests.css">
+<script>
+var COREtests = [
+	{
+		output: 'arrows',
+		outputText: 'arrows',
+		description: 'An arrow function expression has a shorter syntax compared to function expressions and lexically binds the this value. Arrow functions are always anonymous.',
+		test: function () {
+			var test = eval('() => { a = 1; };');
+        	test();
+		}
+	}
+];
+</script>
+<script src="../testrunner.js"></script>
+</head>
+
+<body>
+
+<h2>Core tests</h2>
+
+<div class="floater">
+<p><a href="./">Back to index</a>.</p>
+</p>
+</div>
+
+<div id="finalResults">
+
+</div>
+
+<h4>arrows</h4>
+
+<div id="arrows">
+
+</div>
+</body>
+</html>
