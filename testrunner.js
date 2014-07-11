@@ -1,3 +1,4 @@
+// courtesy of Quirksmode http://www.quirksmode.org/
 /* var showResultDetails = true; */
 
 window.onload = function () {
