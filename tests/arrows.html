@@ -38,7 +38,18 @@
 				var test = eval('(a,b) => { return arguments.length };');
 				return test(1,2);
 			}
-		}
+		},
+        {
+            output: 'empty-returns-undefined',
+            outputText: 'Empty Arrows function: ()=> {}',
+            description: 'An empty arrow function returns undefined',
+            expectedValue: undefined,
+            test: function () {
+                var empty = 'defined';
+                var test = eval('empty = () => {};');
+                return empty;
+            }
+        }
 	];
 	</script>
 	<script src="../testrunner.js"></script>
@@ -63,5 +74,6 @@
 	<div id="with-n-arguments"></div>
 	<div id="with-one-argument"></div>
 	<div id="without-arguments"></div>
+    <div id="empty-returns-undefined"></div>
 </body>
 </html>
