@@ -27,6 +27,17 @@
 				test(1);
 				return a;
 			}
+		},
+		{
+			output: 'with-n-arguments',
+			outputText: 'Arrows functions with N argument: (N)=>',
+			description: 'An arrow function expression has a shorter syntax compared to function expressions.',
+			expectedValue: 2,
+			test: function () {
+				var a,b;
+				var test = eval('(a,b) => { return arguments.length };');
+				return test(1,2);
+			}
 		}
 	];
 	</script>
@@ -47,5 +58,6 @@
 	<h4>arrows</h4>
 	<div id="without-arguments"></div>
 	<div id="with-one-argument"></div>
+	<div id="with-n-arguments"></div>
 </body>
 </html>

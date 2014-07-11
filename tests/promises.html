@@ -6,16 +6,25 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="http://quirksmode.org/dom/domtests.css">
+	<script src="promises.js"></script>
 	<script>
 		var COREtests = [
 			{
 				output: 'promises',
 				outputText: 'promises',
-				description: 'The Promise interface represents a proxy for a value not necessarily known when the promise is created.'/*,
-				test: function () {
-					var test = eval('() => { a = 1; };');
-					test();
-				}*/
+				description: 'The Promise interface represents a proxy for a value not necessarily known when the promise is created.',
+				test: function(){
+					return 'Promise' in window && typeof window.Promise === 'function';
+				},
+				expectedValue: true
+			},{
+				output: 'promises',
+				outputText: 'resolve/reject',
+				description: 'resolve / reject methods are available on the Promise Object',
+				test: function(){
+					return typeof window.Promise.resolve === 'function' && typeof window.Promise.reject === 'function';
+				},
+				expectedValue: true
 			}
 		];
 	</script>
@@ -35,16 +44,8 @@
 
 </div>
 
-<h4>arrows</h4>
-
-<div id="arrows">
-
-</div>
-
 <h4>promises</h4>
 
-<div id="arrows">
-
-</div>
+<div id="promises"></div>
 </body>
 </html>

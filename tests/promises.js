@@ -20,8 +20,11 @@ function testResolve(){
 }
 function hasResolve(){
 	var promise = new Promise(function(resolve, reject){
-		return typeof resolve === 'function';
+		resolve('yeah!');
 	});
+	return promise.then(function(result){
+		return result;
+	})
 }
 function hasReject(){
 
