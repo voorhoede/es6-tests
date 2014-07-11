@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Core tests - </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="http://quirksmode.org/dom/domtests.css">
+	<script>
+		var COREtests = [
+			{
+				output: 'support',
+				outputText: 'Supports Object.observe:',
+				description: 'General test if Object.observe is supported',
+				test: function () {
+					var obj = {};
+					Object.observe(obj, function() {
+
+					});
+				}
+			},
+			{
+				output: 'unobserve',
+				outputText: 'Supports Object.unobserve:',
+				description: 'Remove observer (unobserve)',
+				test: function () {
+					var obj = {};
+					Object.unobserve(obj, observer);
+
+					function observer(changes) {
+
+					}
+				}
+			},
+			{
+				output: 'unobserve-fail',
+				shouldNotWork: true,
+				outputText: 'Should fail without second parameter:',
+				description: 'Remove observer (unobserve) without second parameter',
+				test: function () {
+					var obj = {};
+					Object.unobserve(obj);
+
+				}
+			},
+			{
+				output: 'add',
+				outputText: 'Supports adding a property:',
+				description: 'Notify when any property is added',
+				test: function () {
+					var obj = {};
+					Object.observe(obj, function(changes) {
+						if (changes.type === 'add') {
+							// @TODO: Make sure async return values are working
+						}
+					});
+					obj.foo = 'bar';
+				}
+			},
+			{
+				output: 'delete',
+				outputText: 'Supports deleting a property:',
+				description: 'Notify when any property is deleted',
+				test: function () {
+					var obj = {'foo': 'bar'};
+					Object.observe(obj, function(changes) {
+						if (changes.type === 'delete') {
+							// @TODO: Make sure async return values are working
+						}
+					});
+					delete obj.foo;
+				}
+			}
+		];
+	</script>
+	<script src="../testrunner.js"></script>
+</head>
+
+<body>
+
+<h2>Core tests</h2>
+
+<div class="floater">
+	<p><a href="./">Back to index</a>.</p>
+	</p>
+</div>
+
+<div id="finalResults">
+
+</div>
+
+<h4>observe</h4>
+
+<div id="support"></div>
+<div id="unobserve"></div>
+<div id="unobserve-fail"></div>
+<div id="add"></div>
+<div id="delete"></div>
+
+</body>
+</html>
