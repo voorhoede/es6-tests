@@ -15,16 +15,14 @@
 				description: 'The Promise interface represents a proxy for a value not necessarily known when the promise is created.',
 				test: function(){
 					return 'Promise' in window && typeof window.Promise === 'function';
-				},
-				expectedValue: true
+				}
 			},{
 				output: 'promises',
 				outputText: 'resolve/reject',
 				description: 'resolve / reject methods are available on the Promise Object',
 				test: function(){
 					return typeof window.Promise.resolve === 'function' && typeof window.Promise.reject === 'function';
-				},
-				expectedValue: true
+				}
 			}
 		];
 	</script>
