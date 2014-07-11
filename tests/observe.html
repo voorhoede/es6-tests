@@ -44,15 +44,25 @@
 				}
 			},
 			{
+				output: 'has-type-property',
+				outputText: 'Has type property:',
+				description: 'Has type property when change event is fired',
+				test: function () {
+					var obj = {};
+					Object.observe(obj, function(changes) {
+						return changes.type;
+					});
+					obj.foo = 'bar';
+				}
+			},
+			{
 				output: 'add',
 				outputText: 'Supports adding a property:',
 				description: 'Notify when any property is added',
 				test: function () {
 					var obj = {};
 					Object.observe(obj, function(changes) {
-						if (changes.type === 'add') {
-							// @TODO: Make sure async return values are working
-						}
+						return changes.type === 'add';
 					});
 					obj.foo = 'bar';
 				}
@@ -64,9 +74,7 @@
 				test: function () {
 					var obj = {'foo': 'bar'};
 					Object.observe(obj, function(changes) {
-						if (changes.type === 'delete') {
-							// @TODO: Make sure async return values are working
-						}
+						return changes.type === 'delete';
 					});
 					delete obj.foo;
 				}
@@ -94,6 +102,7 @@
 <div id="support"></div>
 <div id="unobserve"></div>
 <div id="unobserve-fail"></div>
+<div id="has-type-property"></div>
 <div id="add"></div>
 <div id="delete"></div>
 
